@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>dhanush murugan| Portfolio</title>
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body { background: #000; color: #fff; }
+    header { display: flex; justify-content: space-between; align-items: center; padding: 20px 60px; background: #000; }
+    .logo { font-size: 28px; font-weight: 700; color: #B2060F; }
+    nav ul { list-style: none; display: flex; gap: 30px; margin: 0; }
+    nav ul li a { text-decoration: none; color: #fff; font-weight: 500; transition: color 0.3s; }
+    nav ul li a:hover, nav ul li a.active { color: #B2060F; }
+    .contact-button { padding: 10px 20px; border: 2px solid #B2060F; color: #fff; background: transparent; border-radius: 25px; font-weight: bold; text-decoration: none; transition: all 0.3s ease; }
+    .contact-button:hover { background-color: #fff; color: #B2060F; border-color: #fff; }
+    section { padding: 60px 0; border-bottom: 1px solid #222; }
+    .section-content { max-width: 700px; margin: auto; }
+    .hero { display: flex; justify-content: space-between; align-items: center; padding: 80px 60px 0 60px; }
+    .hero-text { max-width: 60%; }
+    .hero-text h1 { font-size: 48px; margin-bottom: 10px; color: #B2060F; }
+    .hero-text h3 { font-size: 28px; color: #fff; }
+    .hero-text h3 span { color: #fff; }
+    .hero-text p { margin-top: 20px; color: #fff; max-width: 600px; }
+    .info-list { margin-top: 30px; color: #fff; font-size: 18px; line-height: 2; list-style: none; padding-left: 0; }
+    .info-list li a { color: #B2060F; text-decoration: none; word-break: break-all; }
+    .info-list li a:hover { text-decoration: underline; color: #fff; }
+    .info-list li { color: #fff; }
+    .social-tile-container {
+      display: flex;
+      gap: 28px;
+      margin-top: 35px;
+      justify-content: flex-start;
+    }
+    .social-tile {
+      background: #000;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      min-width: 0;
+      width: 76px;
+      height: 76px;
+      justify-content: center;
+      border: 2px solid #B2060F;
+      transition: background 0.2s, border 0.2s;
+    }
+    .social-tile:hover {
+      background: #B2060F;
+      border-color: #fff;
+    }
+    .social-tile i {
+      font-size: 40px;
+      color: #fff;
+      transition: color 0.2s;
+    }
+    .social-tile:hover i {
+      color: #000;
+    }
+    .download-btn { margin-top: 25px; padding: 16px 32px; border: none; border-radius: 30px; background-color: #B2060F; color: #fff; font-weight: bold; cursor: pointer; font-size: 18px; box-shadow: 0 2px 8px rgba(178,6,15,0.15); transition: background-color 0.3s, color 0.3s; }
+    .download-btn:hover { background-color: #fff; color: #B2060F; }
+    .hero-image { border: 4px solid #B2060F; border-radius: 50%; overflow: hidden; width: 300px; height: 300px; background: #000; display: flex; align-items: center; justify-content: center; }
+    .hero-image img { width: 100%; height: 100%; object-fit: cover; }
+    .portfolio-grid {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+    .card { background-color: #111; color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(255,255,255,0.1); width: 300px; text-align: left; border: 1.5px solid #B2060F; }
+    .card h3 { margin-top: 0; color: #B2060F; }
+    form { display: flex; flex-direction: column; align-items: center; }
+    form input, form textarea { margin: 10px 0; padding: 10px; width: 80%; max-width: 500px; border: 1.5px solid #B2060F; border-radius: 4px; background-color: #000; color: #fff; font-weight: bold; }
+    button[type="submit"] { padding: 10px 20px; background-color: #B2060F; color: #fff; border: none; cursor: pointer; border-radius: 4px; transition: background-color 0.3s ease, color 0.3s ease; }
+    button[type="submit"]:hover { background-color: #fff; color: #B2060F; }
+    footer { background-color: #000; color: #B2060F; padding: 20px; text-align: center; margin-top: 40px; }
+    .blinking { animation: blink 1s steps(2, start) infinite; }
+    @keyframes blink { to { visibility: hidden; } }
+    @keyframes floatIcon { 0% { transform: translateY(0);} 50% { transform: translateY(-20px);} 100% { transform: translateY(0);} }
+    .corner-icon { position: fixed; bottom: 20px; right: 20px; color: #B2060F; font-size: 32px; z-index: 1000; animation: floatIcon 2s infinite; background: #000; border-radius: 50%; padding: 8px; border: 2px solid #B2060F; }
+    @media (max-width: 900px) {
+      .hero, .section-content { flex-direction: column; padding: 40px 20px; }
+      .hero-text, .section-content { max-width: 100%; text-align: center; }
+      .hero-image { margin-top: 40px; }
+      .social-tile-container { flex-direction: column; align-items: center; gap: 20px; }
+      .social-tile { width: 76px; height: 76px; }
+    }
+    .flip-card {
+      background: transparent;
+      width: 300px;
+      height: 340px;
+      perspective: 1000px;
+      border-radius: 8px;
+    }
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s cubic-bezier(.4,2,.6,1);
+      transform-style: preserve-3d;
+      border-radius: 8px;
+    }
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #111;
+      color: #fff;
+      border: 1.5px solid #B2060F;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .flip-card-front img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-bottom: 1.5px solid #B2060F;
+    }
+    .flip-card-front h3 {
+      color: #B2060F;
+      margin: 18px 0 0 0;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+    .flip-card-back {
+      transform: rotateY(180deg);
+      padding: 20px;
+      box-sizing: border-box;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+    .flip-card-back h3 {
+      color: #B2060F;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+    .flip-card-back ul {
+      padding-left: 18px;
+      font-size: 1rem;
+    }
+    .flip-card:hover .flip-card-inner,
+    .flip-card:focus-within .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">DHANUSH MURUGAN</div>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#activities">Activities</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="#contact" class="contact-button">Contact me</a>
+  </header>
+  <!-- Home Section -->
+  <section id="home">
+    <div class="hero">
+      <div class="hero-text">
+        <h3>Hi, Myself</h3>
+        <h1>DHANUSH MURUGAN</h1>
+        <h3>I'm an <span>Electrical & Electronics Engineering Student</span><span class="blinking"></span></h3>
+        <p>
+          Final-year EEE student skilled in Python, SQL, and Excel, aiming to begin a career in data analytics by turning raw data into meaningful insights.
+        </p>
+        <!-- Social Tiles Start -->
+        <div class="social-tile-container">
+          <a class="social-tile" href="https://www.linkedin.com/in/dhanush-murugan" target="_blank" title="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a class="social-tile" href="mailto:dhanush.murugan.eee@gmail.com" title="Gmail">
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a class="social-tile" href="https://github.com/dhanushmurugan45" target="_blank" title="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a class="social-tile" href="https://instagram.com/_daann_05" target="_blank" title="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+        <!-- Social Tiles End -->
+        <button class="download-btn" onclick="window.open('dhanush_m_eee_resume.pdf','_blank')">Download CV</button>
+      </div>
+      <div class="hero-image">
+        <img src="image.jpg" alt="Dhanush Murugan smiling, wearing formal attire, standing against a neutral background. The emotional tone is confident and approachable.">
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="section-content">
+      <h2>About Me</h2>
+      <p>
+        Motivated and detail-oriented Electrical and Electronics Engineering undergraduate with strong analytical and problem-solving skills.
+        Proficient in Python, SQL, Excel, and Power BI. Eager to apply data analytics knowledge in real-world scenarios through an internship in data analysis, while gaining hands-on industry experience.
+      </p>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education">
+    <div class="section-content">
+      <h2>Education</h2>
+      <p>
+        <strong>Bachelor of Engineering in Electrical and Electronics Engineering</strong><br>
+        Dhirajlal Gandhi College of Technology, Salem<br>
+        2022 – Present | GPA: 7.51 / 10
+      </p>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience">
+    <div class="section-content">
+      <h2>Internship Experience</h2>
+      <p><strong>Intern – United Manufacture India, Salem</strong><br>Summer 2025</p>
+      <ul>
+        <li>Contributed to the development of an Electric Vehicle by assisting with system integration and component testing.</li>
+        <li>Supported IoT-based automation projects, including sensor configuration and microcontroller programming.</li>
+        <li>Worked on small-scale projects by component connection via soldering and implemented Arduino IDE codes.</li>
+        <li>Created technical documentation to support academic research and PhD-level publications.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="section-content">
+      <h2>Projects</h2>
+      <div class="portfolio-grid">
+        <!-- CAN Bus Communication Module (Flip Card with Image) -->
+        <div class="flip-card" tabindex="0">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="canbus.jpeg" alt="CAN Bus Communication Module Preview">
+              <h3>CAN Bus Communication Module</h3>
+            </div>
+            <div class="flip-card-back">
+              <h3>CAN Bus Communication Module</h3>
+              <ul>
+                <li>Developed a communication module using Arduino for CAN bus protocol.</li>
+                <li>Programmed and tested real-time data transmission between microcontrollers.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- Electric Vehicle System Integration (Flip Card with Image) -->
+        <div class="flip-card" tabindex="0">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="ev.jpeg" alt="Electric Vehicle System Integration Preview">
+              <h3>Electric Vehicle System Integration</h3>
+            </div>
+            <div class="flip-card-back">
+              <h3>Electric Vehicle System Integration</h3>
+              <ul>
+                <li>Assisted in system integration and component testing for EV development.</li>
+                <li>Created technical documentation for research and publications.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- Road Accident Analysis Dashboard (Flip Card with Image) -->
+        <div class="flip-card" tabindex="0">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="road accident dashboard.png" alt="Road Accident Analysis Dashboard Preview">
+              <h3>Road Accident Analysis Dashboard (Excel)</h3>
+            </div>
+            <div class="flip-card-back">
+              <h3>Road Accident Analysis Dashboard (Excel)</h3>
+              <ul>
+                <li>Designed an interactive Excel dashboard to analyze road accident data across various regions.</li>
+                <li>Utilized pivot tables, slicers, charts, and conditional formatting for real-time filtering and visual trends.</li>
+                <li>Identified accident hotspots, frequent causes, and seasonal patterns to improve road safety awareness and decision-making.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- Pizza Sales Analysis (Flip Card with Image) -->
+        <div class="flip-card" tabindex="0">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="Screenshot 2025-04-29 175414.png" alt="Pizza Sales Analysis Dashboard Preview">
+              <h3>Pizza Sales Analysis (SQL)</h3>
+            </div>
+            <div class="flip-card-back">
+              <h3>Pizza Sales Analysis (SQL)</h3>
+              <ul>
+                <li>Performed SQL-based data analysis on a pizza sales dataset to extract business insights.</li>
+                <li>Analyzed order volume, revenue trends, and most popular pizza categories across dates and times.</li>
+                <li>Highlighted key customer preferences, peak sales hours, and product performance to support data-driven marketing and inventory planning.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="section-content">
+      <h2>Skills</h2>
+      <ul>
+        <li><strong>Programming Languages:</strong> Python</li>
+        <li><strong>Tools:</strong> Excel, Power BI, MS Office</li>
+        <li><strong>Database:</strong>: SQL  </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section id="certifications">
+    <div class="section-content">
+      <h2>Certifications</h2>
+      <ul>
+        <li>Workshop – AI-Driven Networking – NIT Trichy (2025)</li>
+        <li>Introduction to MS Excel (Simplilearn2024)</li>
+        <li>Python for a data analytics (2024)</li>
+        <li>Certificate of Appreciation – Symposium, GCE Salem (2023)</li>
+        <li>Onsite Training – NIRT Renewable Energy Limited (2023)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Activities Section -->
+  <section id="activities">
+    <div class="section-content">
+      <h2>Extracurricular Activities</h2>
+      <ul>
+        <li>Languages – Tamil, English</li>
+        <li>Member – Bureau of Indian Standards (BIS)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="section-content">
+      <h2>Contact Me</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Dhanush Murugan. All rights reserved.</p>
+  </footer>
+
+  <!-- Floating Corner Icon -->
+  <div class="corner-icon">
+    <i class="fas fa-code"></i>
+  </div>
+
+  <!-- JS for click-to-flip (add before </body>) -->
+  <script>
+    document.querySelectorAll('.flip-card').forEach(card => {
+      card.addEventListener('click', function() {
+        this.classList.toggle('flipped');
+      });
+      card.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          this.classList.toggle('flipped');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
