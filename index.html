@@ -83,11 +83,104 @@
     @keyframes floatIcon { 0% { transform: translateY(0);} 50% { transform: translateY(-20px);} 100% { transform: translateY(0);} }
     .corner-icon { position: fixed; bottom: 20px; right: 20px; color: #B2060F; font-size: 32px; z-index: 1000; animation: floatIcon 2s infinite; background: #000; border-radius: 50%; padding: 8px; border: 2px solid #B2060F; }
     @media (max-width: 900px) {
-      .hero, .section-content { flex-direction: column; padding: 40px 20px; }
-      .hero-text, .section-content { max-width: 100%; text-align: center; }
-      .hero-image { margin-top: 40px; }
-      .social-tile-container { flex-direction: column; align-items: center; gap: 20px; }
-      .social-tile { width: 76px; height: 76px; }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px 10px;
+        height: auto;
+      }
+      .logo {
+        margin-bottom: 10px;
+        font-size: 22px;
+      }
+      nav ul {
+        gap: 14px;
+        flex-wrap: wrap;
+        font-size: 15px;
+      }
+      .contact-button {
+        margin-top: 10px;
+        padding: 8px 16px;
+        font-size: 15px;
+      }
+      .hero {
+        flex-direction: column;
+        padding: 40px 10px 0 10px;
+        align-items: center;
+      }
+      .hero-text {
+        max-width: 100%;
+        text-align: center;
+      }
+      .hero-text h1 {
+        font-size: 32px;
+      }
+      .hero-text h3 {
+        font-size: 20px;
+      }
+      .hero-image {
+        width: 180px;
+        height: 180px;
+        margin-top: 30px;
+      }
+      .section-content {
+        max-width: 100%;
+        padding: 0 10px;
+      }
+      .portfolio-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+      }
+      .flip-card, .card {
+        width: 95vw;
+        max-width: 340px;
+        min-width: 0;
+        height: 340px;
+      }
+      .flip-card-front img {
+        height: 120px;
+      }
+      .flip-card-front h3, .flip-card-back h3 {
+        font-size: 1rem;
+      }
+      .download-btn {
+        padding: 10px 18px;
+        font-size: 15px;
+        margin-top: 18px;
+      }
+      .social-tile-container {
+        flex-direction: row;
+        gap: 12px;
+        margin-top: 20px;
+        justify-content: center;
+      }
+      .social-tile {
+        width: 54px;
+        height: 54px;
+        padding: 8px 0;
+      }
+      .social-tile i {
+        font-size: 28px;
+      }
+      section {
+        padding: 36px 0;
+      }
+      .corner-icon {
+        font-size: 24px;
+        padding: 6px;
+        bottom: 12px;
+        right: 12px;
+      }
+      form input, form textarea {
+        width: 95%;
+        font-size: 15px;
+        padding: 8px;
+      }
+      button[type="submit"] {
+        padding: 8px 16px;
+        font-size: 15px;
+      }
     }
     .flip-card {
       background: transparent;
